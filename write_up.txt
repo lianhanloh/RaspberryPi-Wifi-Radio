@@ -1,0 +1,80 @@
+Jane Guo and Lianhan Loh
+
+Pi Radio - Stream Pandora Stations from your pandora account!
+Guide: https://learn.adafruit.com/pi-wifi-radio?view=all
+
+For each part, Jane and Lianhan worked together to figure out the issues.
+
+What we did: 
+     Day 1 (2 hours)
+	- Flashed SD card with Occidentalis_v02, Adafruit's add-on to Debian's Wheezy OS.
+	- Set up system config files, such as keyboard config, expanding root partition, and enabling SSH
+		server
+	- Attempted to configure wireless network access through from the command line, editing the
+		hostname, and /etc/network/interfaces file. 
+	- Did not manage to connect successfully, and used ethernet to get internet access instead.
+	- Installed software packages through apt-get install (pianobar) and wget, python scripts for
+		Python's pexpect library. Link below:
+		http://pexpect.sourceforge.net/pexpect.html
+ 	- Git clone Adafruit's open-source code for Piano Bar & Pi Radio
+	- Links to the two repositories used here:
+		https://github.com/adafruit/Python-WiFi-Radio
+		https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
+	
+     Day 2 (6 hours)
+	- Set up pianobar and pandora configurations from command line, both through the Raspberry Pi's
+		terminal and via SSH from our own computers.
+	- Put together & soldered Adafruit RGB LCD Pi Plate w/ Keypad  and all it's components (Buttons, resistors, multi pin
+		connectors) This was particularly challenging as neither of has have any soldering experience.
+		We managed to get the components soldered together and working after a couple of hours.
+		- Guide: https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi?view=all
+	- Attached LCD Plate to the Raspberry Pi and was able to get the intended colors and text on
+		screen. Was able to control the Pi  using buttons soldered onto the Pi, and interfaced via
+		Python scripts.
+	- We faced significant challenges getting wifi connectivity for our Raspberry Pi.
+	- Steps taken
+		- Followed Penn CETS set-up instructions for Linux computers by editing the file
+			/etc/wicd/encryptions/templates/active and creating a new config file in the same folder
+			called penn. Instructions from :  http://www.seas.upenn.edu/cets/answers/airpennnet-linux.html
+		- Realized that the default network manager would not work for our purposes, and so uninstalled NetworkManager and installed WiCD
+		- Spent time trying to match the config file to the exact specifications and format such files
+			required.
+		- After more than two hours, we found a blog post at the this link http://francois.bienvenu.free.fr/linux_tips/connecting_to_airpennnet_with_wicd.html
+		- We used the config file at the link and edited it for our purposes. With that done, our custom
+			encryption profile showed up on the Wicd network manager GUI, and we were able to connect
+			through wifi to the internet and got an IP address confirmed. However, internet access did not
+			work properly, and we could not ping any domain or SSH in. 
+		- Continued using terminal and Vim to edit related files and troubleshoot
+		- Eventually tried commenting out the initial network/interfaces config file we edited and wifi started working
+		- We were able to SSH in through the wifi network connection.
+		- However, the wifi connection was unstable and we did not managed to connect for any extended period of time
+		- Internet connection through WiFi, when stable, allowed the Raspberry Pi to connect to the
+			Pandora service and play songs.
+		- The LCD screen was configured to display the IP address it connects to on start-up so we can
+			SSH in and install updates, edit and include new scripts as necessary without needing a
+			HDMI-enabled monitor and keyboard/mouse.
+
+     Day 3 (4 hours)
+	- Final configurations for project via SSH
+	- Edited /etc/rc.local script to automatically cd into Python-WiFi-Radio directory and run the
+		script to start playing music. 
+	- Fixed loose connections and re-soldered some joints on Pi Plate
+	- Made demonstration video and wrote this README
+	
+
+Linux/Unix related Skills:
+	- Every step of the process required command-line knowledge of linux tools. In particular, we 
+		- SSH-ed into Pi to access files in Pi after initial configuration
+		- Used VIM to edit/modify files for both the program and Wifi
+			- Experience gained with config files (.vimrc, .bashrc, .gitconfig came in handy as we navigated
+				the directories and trouble-shooted our own wifi config files.
+		- Learned about NetworkManager vs. Wicd; 
+			- uninstalled the first and installed the second 
+			- learned to write Wicd encryption templates for wifi.
+
+Source code and scripts used for the projects were from tutorials online and have been linked above.
+We made particular configurations to fit our purposes and the Raspberry Pi, especially with regards
+to the WiFi connection to AirPennNet (the Adafruit tutorial assumed a much simpler method of
+internet access). Having access to a Pi Face and LCD screen prepared by Adafruit made it much easier
+to assemble and get the Python scripts to work on it. We learnt a lot through soldering the
+components together and getting internet access for Pandora to be streamed in. 
