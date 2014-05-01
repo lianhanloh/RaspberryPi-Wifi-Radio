@@ -1,20 +1,18 @@
 RaspberryPi-Wifi-Radio
 ======================
 
-We set up a wifi radio on a raspberry pi following a tutorial from adafruit.com.
-Link:
-https://learn.adafruit.com/pi-wifi-radio?view=all
+We set up a wifi radio on a Raspberry Pi following a [tutorial](https://learn.adafruit.com/pi-wifi-radio?view=all) from [Adafruit] (adafruit.com).
 
 Set-up
 ======================
 The Raspberry Pi runs Occidentalis v0.2, Adafruit's Raspberry Pi Educational Distro.
 
+We also used an RGB LCD display soldered onto a Pi Face together with buttons to interface with our
+Raspberry Pi.
 
 Dependencies
 ======================
-Pexpect library for Python
-http://pexpect.sourceforge.net/pexpect.html
+[Pexpect] (http://pexpect.sourceforge.net/pexpect.htm) library for Python
 
-Python code referenced by tutorial at the following repositories:
-https://github.com/adafruit/Python-WiFi-Radio
-https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code
+Python code cloned from the following repositories:
+[Python WiFi Radio interface] (https://github.com/adafruit/Python-WiFi-Radio) and [Raspberry Pi Python Code] (https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code)
