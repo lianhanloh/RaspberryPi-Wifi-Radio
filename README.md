@@ -3,6 +3,8 @@ RaspberryPi-Wifi-Radio
 
 We set up a wifi radio on a Raspberry Pi following a [tutorial](https://learn.adafruit.com/pi-wifi-radio?view=all) from [Adafruit] (adafruit.com).
 
+Demo video is linked [here] (http://lianhanloh.github.io/RaspberryPi-Wifi-Radio/)
+
 Set-up
 ======================
 The Raspberry Pi runs Occidentalis v0.2, Adafruit's Raspberry Pi Educational Distro.
